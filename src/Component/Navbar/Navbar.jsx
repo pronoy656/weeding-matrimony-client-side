@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(authContext);
   const navLink = (
     <>
       <li>
@@ -23,11 +26,17 @@ const Navbar = () => {
           <a>Contact Us</a>
         </NavLink>
       </li>
-      <li>
-        <NavLink to={"/dashBoard"}>
-          <a>Dash Board</a>
-        </NavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink to={"/dashBoard"}>
+              <a>Dash Board</a>
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 

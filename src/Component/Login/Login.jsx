@@ -1,14 +1,25 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
 
   const handleLogin = (e) => {
+    e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     const inputField = { email, password };
     console.log(inputField);
+    signIn(email, password)
+      .then((userLogIn) => {
+        console.log(userLogIn.user);
+        toast.success("Signin SuccessFully");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("login faield");
+      });
   };
 
   return (
