@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
@@ -67,9 +67,15 @@ const Login = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Sign in</button>
               </div>
             </form>
+            <h1>
+              Don't have an account?{" "}
+              <Link to={"/register"}>
+                <span>Sign up</span>
+              </Link>
+            </h1>
           </div>
         </div>
       </div>

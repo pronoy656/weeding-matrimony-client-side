@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(authContext);
@@ -91,9 +92,15 @@ const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Sign up</button>
               </div>
             </form>
+            <h1>
+              Already have an account?{" "}
+              <Link to={"/login"}>
+                <span>Sign in</span>
+              </Link>
+            </h1>
           </div>
         </div>
       </div>
