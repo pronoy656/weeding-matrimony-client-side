@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,6 +20,7 @@ const Login = () => {
       .then((userLogIn) => {
         console.log(userLogIn.user);
         toast.success("Signin SuccessFully");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
