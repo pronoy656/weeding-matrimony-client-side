@@ -73,17 +73,24 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
       <div className="navbar-end">
-        <div className="avatar">
-          <div className="w-12 mr-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
-        <NavLink to={"/login"}>
-          <a className="btn mr-5">sign in</a>
-        </NavLink>
-        <NavLink to={"/register"}>
-          <a className="btn">sign up</a>
-        </NavLink>
+        {user ? (
+          <>
+            <div className="avatar">
+              <div className="w-12 mr-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <NavLink to={"/login"}>
+              <a className="btn mr-5">sign in</a>
+            </NavLink>
+            <NavLink to={"/register"}>
+              <a className="btn">sign up</a>
+            </NavLink>
+          </>
+        )}
       </div>
     </div>
   );
