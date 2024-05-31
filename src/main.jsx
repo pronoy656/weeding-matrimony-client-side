@@ -11,6 +11,8 @@ import BioData from "./Component/BioData/BioData";
 import AboutUs from "./Component/AboutUs/AboutUs";
 import ContactUs from "./Component/ContactUs/ContactUs";
 import DashBoard from "./Component/DashBoard/DashBoard";
+import Login from "./Component/Login/Login";
+import Register from "./Component/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/dashBoard",
         element: <DashBoard></DashBoard>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },
