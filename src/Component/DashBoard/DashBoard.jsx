@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
   const { logOut } = useContext(authContext);
@@ -15,14 +16,42 @@ const DashBoard = () => {
 
   return (
     <div className="flex gap-x-6">
-      <div className="border border-red-300 w-1/4">
+      <div className="border border-red-300 w-1/4 bg-orange-500 space-y-6 p-6">
         <h1>Left side</h1>
-        <button onClick={handleLogOut} className="btn btn-primary">
-          Log Out
-        </button>
+        <ul className="space-y-5">
+          <li className="bg-blue-500">
+            <NavLink to={"/dashBoard/editBioData"}>Edit Biodata</NavLink>
+          </li>
+          <li className="bg-blue-500">
+            <NavLink to={"/dashBoard/viewBioData"}>View Biodata</NavLink>
+          </li>
+          <li className="bg-blue-500">
+            <NavLink to={"/dashBoard/myContRequest"}>
+              My Contact Request
+            </NavLink>
+          </li>
+          <li className="bg-blue-500">
+            <NavLink to={"/dashBoard/favouriteBioData"}>
+              Favourite Biodata{" "}
+            </NavLink>
+          </li>
+          <div className="divider"></div>
+          <li>
+            {" "}
+            <Link to={"/"}>
+              <button className="btn btn-secondary mr-5">Home</button>
+            </Link>
+          </li>
+          <li>
+            <button onClick={handleLogOut} className="btn btn-primary">
+              Log Out
+            </button>
+          </li>
+        </ul>
       </div>
       <div className="border border-red-300 w-3/4">
         <h1>Right side</h1>
+        <Outlet></Outlet>
       </div>
     </div>
   );

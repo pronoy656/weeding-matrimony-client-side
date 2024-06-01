@@ -16,6 +16,10 @@ import Register from "./Component/Register/Register";
 import AuthProvider from "./Component/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
+import EditBioData from "./Component/UserDashBoard/EditBioData";
+import ViewBioData from "./Component/UserDashBoard/ViewBioData";
+import MyContReq from "./Component/UserDashBoard/MyContReq";
+import FavouriteBioData from "./Component/UserDashBoard/FavouriteBioData";
 
 const router = createBrowserRouter([
   {
@@ -43,10 +47,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/dashBoard",
-        element: <DashBoard></DashBoard>,
-      },
+
       {
         path: "/login",
         element: <Login></Login>,
@@ -54,6 +55,28 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/dashBoard",
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: "/dashBoard/editBioData",
+        element: <EditBioData></EditBioData>,
+      },
+      {
+        path: "/dashBoard/viewBioData",
+        element: <ViewBioData></ViewBioData>,
+      },
+      {
+        path: "/dashBoard/myContRequest",
+        element: <MyContReq></MyContReq>,
+      },
+      {
+        path: "/dashBoard/favouriteBioData",
+        element: <FavouriteBioData></FavouriteBioData>,
       },
     ],
   },
