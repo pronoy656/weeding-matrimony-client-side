@@ -22,6 +22,7 @@ import MyContReq from "./Component/UserDashBoard/MyContReq";
 import FavouriteBioData from "./Component/UserDashBoard/FavouriteBioData";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Details from "./Component/Details/Details";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,16 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/detailsBio/${params.id}`),
       },
     ],
   },

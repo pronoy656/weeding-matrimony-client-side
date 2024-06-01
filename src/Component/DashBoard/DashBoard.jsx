@@ -1,15 +1,17 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const DashBoard = () => {
   const { logOut } = useContext(authContext);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("logout Successfully");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
