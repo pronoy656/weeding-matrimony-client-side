@@ -21,6 +21,10 @@ import ViewBioData from "./Component/UserDashBoard/ViewBioData";
 import MyContReq from "./Component/UserDashBoard/MyContReq";
 import FavouriteBioData from "./Component/UserDashBoard/FavouriteBioData";
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -84,9 +88,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
     <Toaster />
   </React.StrictMode>
 );
