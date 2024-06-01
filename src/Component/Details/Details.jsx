@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Details = () => {
   const bioDetails = useLoaderData();
@@ -34,7 +35,13 @@ const Details = () => {
     axiosSecure.post("/favorite", bioDetails).then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
-        toast.success("Successfully Add Favorite item");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfully add Favorite item",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     });
   };
