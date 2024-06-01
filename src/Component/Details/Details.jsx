@@ -1,5 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const Details = () => {
   const bioDetails = useLoaderData();
@@ -24,6 +26,18 @@ const Details = () => {
     Contact_Email,
     Mobile_Number,
   } = bioDetails;
+  const axiosSecure = useAxiosSecure();
+
+  //   add Favorite button
+  const handleAddFavorite = () => {
+    // console.log(bioDetails);
+    axiosSecure.post("/favorite", bioDetails).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        toast.success("Successfully Add Favorite item");
+      }
+    });
+  };
   return (
     <div>
       <h1 className="text-3xl font-bold text-center">This is details page</h1>
@@ -34,7 +48,7 @@ const Details = () => {
       <h1>Age:{Age}</h1>
       <h1>Occupation:{Occupation}</h1>
       <h1>Name:{Name}</h1>
-      <button className="btn btn-xs btn-outline">
+      <button onClick={handleAddFavorite} className="btn btn-xs btn-outline">
         <FaRegHeart />
       </button>
       <h1>Date_of_Birth:{Date_of_Birth}</h1>
