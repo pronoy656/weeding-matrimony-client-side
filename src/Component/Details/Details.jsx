@@ -40,6 +40,7 @@ const Details = () => {
       const favoriteItem = {
         favId: _id,
         email: user.email,
+        id,
         Name,
         Biodata_Type,
         Profile_Image_Link,
