@@ -3,10 +3,14 @@ import { FaRegHeart } from "react-icons/fa";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const Details = () => {
   const bioDetails = useLoaderData();
+  const { user } = useContext(authContext);
   const {
+    _id,
     id,
     Name,
     Biodata_Type,
@@ -31,19 +35,36 @@ const Details = () => {
 
   //   add Favorite button
   const handleAddFavorite = () => {
-    // console.log(bioDetails);
-    axiosSecure.post("/favorite", bioDetails).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Successfully add Favorite item",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    if (user && user.email) {
+      console.log(user.email);
+      const favoriteItem = {
+        favId: _id,
+        email: user.email,
+        Name,
+        Biodata_Type,
+        Profile_Image_Link,
+        Age,
+        Occupation,
+        Contact_Email,
+        Race,
+        Height,
+        Permanent_Division,
+        Present_Division,
+        Fathers_Name,
+      };
+      axiosSecure.post("/favorite", favoriteItem).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully add Favorite item",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    }
   };
   return (
     <div>

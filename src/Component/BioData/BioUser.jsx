@@ -25,7 +25,7 @@ const BioUser = ({ bioUser }) => {
       </div>
       <h1>Name:{Name}</h1>
       <h1>Gender: {Biodata_Type}</h1>
-      <img src={Profile_Image_Link} alt="" />
+      <img className="w-full" src={Profile_Image_Link} alt="" />
       <h1>Permanent Address: {Permanent_Division}</h1>
       <h1>Age:{Age}</h1>
       <h1>Occupation: {Occupation}</h1>
