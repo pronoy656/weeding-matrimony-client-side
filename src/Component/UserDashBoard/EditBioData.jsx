@@ -1,12 +1,70 @@
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const EditBioData = () => {
   const { user } = useContext(authContext);
+  const axiosSecure = useAxiosSecure();
+
+  const handleAddBioData = (e) => {
+    e.preventDefault();
+    const Biodata_Type = e.target.bioData.value;
+    const Name = e.target.name.value;
+    const Profile_Image_Link = e.target.image.value;
+    const Date_of_Birth = e.target.date.value;
+    const Height = e.target.height.value;
+    const Weight = e.target.weight.value;
+    const Age = e.target.age.value;
+    const Occupation = e.target.occupation.value;
+    const Race = e.target.Race.value;
+    const Fathers_Name = e.target.father.value;
+    const Mothers_Name = e.target.mother.value;
+    const Permanent_Division = e.target.permanent.value;
+    const Present_Division = e.target.present.value;
+    const Expected_Partner_Age = e.target.partnerAge.value;
+    const Expected_Partner_Height = e.target.partnerHeight.value;
+    const Expected_Partner_Weight = e.target.partnerWeight.value;
+    const Contact_Email = e.target.email.value;
+    const Mobile_Number = e.target.contact.value;
+    const allField = {
+      Biodata_Type,
+      Name,
+      Profile_Image_Link,
+      Date_of_Birth,
+      Height,
+      Weight,
+      Age,
+      Occupation,
+      Race,
+      Fathers_Name,
+      Mothers_Name,
+      Permanent_Division,
+      Present_Division,
+      Expected_Partner_Age,
+      Expected_Partner_Height,
+      Expected_Partner_Weight,
+      Contact_Email,
+      Mobile_Number,
+    };
+    console.log(allField);
+    axiosSecure.post("/bioData", allField).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfully add your biodata",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1>This is bio data page</h1>
-      <form>
+      <form onSubmit={handleAddBioData}>
         <div className="flex space-x-4">
           <div className="form-control w-1/2">
             <label className="label">
@@ -17,7 +75,7 @@ const EditBioData = () => {
                 Pick one Biodata type
               </option>
               <option value={"Male"}>Male</option>
-              <option value={"72 Kg"}>72 Kg</option>
+              <option value={"Female"}>Female</option>
             </select>
           </div>
           <div className="form-control w-1/2">
@@ -268,7 +326,7 @@ const EditBioData = () => {
             <label className="label">
               <span className="label-text">Partner Height</span>
             </label>
-            <select className="select select-bordered" name="height">
+            <select className="select select-bordered" name="partnerHeight">
               <option disabled selected>
                 Pick your expected Partner height
               </option>
