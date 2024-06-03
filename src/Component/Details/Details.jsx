@@ -92,6 +92,9 @@ const Details = () => {
       <h1>Expected_Partner_Weight:{Expected_Partner_Weight}</h1>
       <h1>Contact_Email:{Contact_Email}</h1>
       <h1>Mobile_Number:{Mobile_Number}</h1>
+      <button className="btn btn-error mr-5">
+        Request Contact information
+      </button>
       <Link to={"/bioData"}>
         <button className="btn btn-success">Back</button>
       </Link>
