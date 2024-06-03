@@ -405,7 +405,7 @@ const EditBioData = () => {
             <input
               type="text"
               name="email"
-              defaultValue={user.email}
+              defaultValue={user?.email}
               readOnly
               className="input input-bordered"
               required
