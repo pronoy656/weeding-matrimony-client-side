@@ -74,8 +74,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/detailsBio/${params.id}`),
       },
       {
-        path: "/checkOutPage",
+        path: "/checkOutPage/:id",
         element: <CheckOut></CheckOut>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/detailsBio/${params.id}`),
       },
     ],
   },

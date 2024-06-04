@@ -115,7 +115,7 @@ const Details = () => {
           <h1>Mobile_Number:{Mobile_Number}</h1>
         </div>
       </div>
-      <Link to={"/checkOutPage"}>
+      <Link to={`/checkOutPage/${_id}`}>
         <button className="btn btn-error mr-5">
           Request Contact information
         </button>
