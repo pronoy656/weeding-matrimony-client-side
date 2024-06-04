@@ -2,10 +2,14 @@ import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import SociealLogin from "../SociealLogin/SociealLogin";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Register = () => {
-  const { createUser, updateProfile, user, setUser } = useContext(authContext);
+  const { createUser, updateUserProfile, user, setUser } =
+    useContext(authContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -20,12 +24,20 @@ const Register = () => {
     createUser(email, password)
       .then((userCreate) => {
         const user = userCreate.user;
-        updateProfile(name, photoUrl).then(() => {
+        updateUserProfile(name, photoUrl).then(() => {
+          const userInfo = {
+            name: name,
+            email: email,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              toast.success("Successfully account created!");
+              navigate("/");
+            }
+          });
           setUser({ displayName: name, photoURL: photoUrl });
         });
         console.log(user);
-        toast.success("Successfully account created!");
-        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -100,6 +112,8 @@ const Register = () => {
                 <button className="btn btn-primary">Sign up</button>
               </div>
             </form>
+            <div className="divider">OR</div>
+            <SociealLogin></SociealLogin>
             <h1>
               Already have an account?{" "}
               <Link to={"/login"}>

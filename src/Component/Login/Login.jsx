@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import SociealLogin from "../SociealLogin/SociealLogin";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
@@ -70,6 +71,8 @@ const Login = () => {
                 <button className="btn btn-primary">Sign in</button>
               </div>
             </form>
+            <div className="divider">OR</div>
+            <SociealLogin></SociealLogin>
             <h1>
               Don't have an account?{" "}
               <Link to={"/register"}>
