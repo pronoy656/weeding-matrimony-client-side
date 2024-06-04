@@ -81,7 +81,8 @@ const Details = () => {
               onClick={handleAddFavorite}
               className="btn btn-xs btn-outline"
             >
-              <FaRegHeart />
+              {/* <FaRegHeart /> */}
+              favorite
             </button>
           </div>
           <h1>Name:{Name}</h1>

@@ -35,7 +35,7 @@ const BioUser = ({ bioUser }) => {
         <BsPeopleFill />
         Gender: {Biodata_Type}
       </h1>
-      <img className="w-full" src={Profile_Image_Link} alt="" />
+      <img className="w-36 h-36 rounded-full" src={Profile_Image_Link} alt="" />
       <h1 className="flex items-center">
         <FaLocationDot />
         <span>Permanent Address: {Permanent_Division}</span>

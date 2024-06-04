@@ -24,6 +24,7 @@ import FavouriteBioData from "./Component/UserDashBoard/FavouriteBioData";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Details from "./Component/Details/Details";
 import CheckOut from "./Component/CheckOut/CheckOut";
+import Review from "./Component/UserDashBoard/Review";
 
 const queryClient = new QueryClient();
 
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/dashBoard/favouriteBioData",
         element: <FavouriteBioData></FavouriteBioData>,
+      },
+      {
+        path: "/dashBoard/review",
+        element: <Review></Review>,
       },
     ],
   },

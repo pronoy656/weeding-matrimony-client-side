@@ -37,6 +37,9 @@ const DashBoard = () => {
               Favourite Biodata{" "}
             </NavLink>
           </li>
+          <li className="bg-blue-500">
+            <NavLink to={"/dashBoard/review"}>user Review </NavLink>
+          </li>
           <div className="divider"></div>
           <li>
             {" "}
