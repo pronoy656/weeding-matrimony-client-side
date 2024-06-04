@@ -1,5 +1,10 @@
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaBusinessTime } from "react-icons/fa6";
+import { BsPeopleFill } from "react-icons/bs";
+import { TiMediaRecord } from "react-icons/ti";
+import { MdDriveFileRenameOutline } from "react-icons/md";
 
 const BioUser = ({ bioUser }) => {
   const {
@@ -14,7 +19,6 @@ const BioUser = ({ bioUser }) => {
   } = bioUser;
   return (
     <div className=" border-2 border-red-600 mt-5">
-      <h1>This is card page</h1>
       <div className="flex justify-between">
         <h1>User Id: {id}</h1>
         <div>
@@ -23,12 +27,27 @@ const BioUser = ({ bioUser }) => {
           </button>
         </div>
       </div>
-      <h1>Name:{Name}</h1>
-      <h1>Gender: {Biodata_Type}</h1>
+      <h1 className="flex items-center">
+        <MdDriveFileRenameOutline />
+        Name:{Name}
+      </h1>
+      <h1 className="flex items-center">
+        <BsPeopleFill />
+        Gender: {Biodata_Type}
+      </h1>
       <img className="w-full" src={Profile_Image_Link} alt="" />
-      <h1>Permanent Address: {Permanent_Division}</h1>
-      <h1>Age:{Age}</h1>
-      <h1>Occupation: {Occupation}</h1>
+      <h1 className="flex items-center">
+        <FaLocationDot />
+        <span>Permanent Address: {Permanent_Division}</span>
+      </h1>
+      <h1 className="flex items-center">
+        <TiMediaRecord />
+        Age:{Age}
+      </h1>
+      <h1 className="flex items-center">
+        <FaBusinessTime />
+        <span>Occupation: {Occupation}</span>
+      </h1>
       <Link to={`/details/${_id}`}>
         <button className="btn btn-outline">View Profile</button>
       </Link>

@@ -23,6 +23,7 @@ import FavouriteBioData from "./Component/UserDashBoard/FavouriteBioData";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Details from "./Component/Details/Details";
+import CheckOut from "./Component/CheckOut/CheckOut";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/detailsBio/${params.id}`),
+      },
+      {
+        path: "/checkOutPage",
+        element: <CheckOut></CheckOut>,
       },
     ],
   },
