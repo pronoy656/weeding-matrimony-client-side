@@ -25,6 +25,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Details from "./Component/Details/Details";
 import CheckOut from "./Component/CheckOut/CheckOut";
 import Review from "./Component/UserDashBoard/Review";
+import AdminDashBoard from "./Component/AdminDashBoard/AdminDashBoard";
+import ManageUsers from "./Component/AdminDashBoard/ManageUsers";
+import AprnPremium from "./Component/AdminDashBoard/AprnPremium";
+import AprvContactReq from "./Component/AdminDashBoard/AprvContactReq";
 
 const queryClient = new QueryClient();
 
@@ -104,6 +108,25 @@ const router = createBrowserRouter([
       {
         path: "/dashBoard/review",
         element: <Review></Review>,
+      },
+
+      // Admin dashBoard
+
+      {
+        path: "/dashBoard/adminDashBoard",
+        element: <AdminDashBoard></AdminDashBoard>,
+      },
+      {
+        path: "/dashBoard/manageUsers",
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "/dashBoard/approvedPremium",
+        element: <AprnPremium></AprnPremium>,
+      },
+      {
+        path: "/dashBoard/approvedContactRequest",
+        element: <AprvContactReq></AprvContactReq>,
       },
     ],
   },
