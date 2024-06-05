@@ -31,7 +31,7 @@ const ManageUsersTable = ({ users, index }) => {
           <td>{email}</td>
           <td>
             {users.role === "admin" ? (
-              "Admin"
+              <h1 className="btn btn-sm bg-red-200">Admin</h1>
             ) : (
               <button
                 onClick={() => handleMakeAdmin(users)}
