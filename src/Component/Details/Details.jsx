@@ -5,6 +5,8 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
+import usePremiumTan from "../Hooks/usePremiumTan";
+import useAdmin from "../Hooks/useAdmin";
 
 const Details = () => {
   const bioDetails = useLoaderData();
@@ -32,6 +34,9 @@ const Details = () => {
     Mobile_Number,
   } = bioDetails;
   const axiosSecure = useAxiosSecure();
+
+  const [isPremium] = usePremiumTan();
+  const [isAdmin] = useAdmin();
 
   //   add Favorite button
   const handleAddFavorite = () => {
@@ -112,7 +117,19 @@ const Details = () => {
             <h1>Expected_Partner_Weight:{Expected_Partner_Weight}</h1>
           </div>
           <h1>Contact_Email:{Contact_Email}</h1>
-          <h1>Mobile_Number:{Mobile_Number}</h1>
+          {isPremium || isAdmin ? (
+            <>
+              <h1 className="btn btn-md bg-green-500">
+                Mobile_Number:{Mobile_Number}
+              </h1>
+            </>
+          ) : (
+            <>
+              <h1 className="bg-red-500">
+                Mobile_Number: Only see the premium number
+              </h1>
+            </>
+          )}
         </div>
       </div>
       <Link to={`/checkOutPage/${_id}`}>

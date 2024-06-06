@@ -1,5 +1,25 @@
+import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+
 const AprvPremiumTable = ({ premium, index }) => {
-  const { email, Name } = premium;
+  const { email, Name, _id } = premium;
+  //   const axiosSecure = useAxiosSecure();
+
+  //   const handleMakePremium = () => {
+  //     axiosSecure.patch(`/users/premium/${_id}`).then((res) => {
+  //       console.log(res.data);
+  //       if (res.data.modifiedCount > 0) {
+  //         Swal.fire({
+  //           position: "top-end",
+  //           icon: "success",
+  //           title: `${Name}is now premium member`,
+  //           showConfirmButton: false,
+  //           timer: 1500,
+  //         });
+  //       }
+  //     });
+  //   };
+
   return (
     <div>
       <tr>

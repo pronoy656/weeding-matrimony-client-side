@@ -22,6 +22,22 @@ const ManageUsersTable = ({ users, index }) => {
       }
     });
   };
+
+  const handleMakePremium = () => {
+    axiosSecure.patch(`/users/premium/${_id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${name}is now premium member`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
   return (
     <div>
       <tbody>
@@ -42,7 +58,16 @@ const ManageUsersTable = ({ users, index }) => {
             )}
           </td>
           <td>
-            <button className="btn btn-sm bg-yellow-400">Make Premium</button>
+            {users.role === "premium" ? (
+              <h1 className="btn btn-sm bg-red-400 text-white">Premium</h1>
+            ) : (
+              <button
+                onClick={() => handleMakePremium(users)}
+                className="btn btn-sm bg-yellow-400"
+              >
+                Make Premium
+              </button>
+            )}
           </td>
         </tr>
       </tbody>
