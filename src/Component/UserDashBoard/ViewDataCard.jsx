@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { authContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 const ViewDataCard = ({ viewBio }) => {
+  const { user } = useContext(authContext);
   const {
     Name,
     Biodata_Type,
@@ -19,6 +25,36 @@ const ViewDataCard = ({ viewBio }) => {
     Contact_Email,
     Mobile_Number,
   } = viewBio;
+  const axiosPublic = useAxiosPublic();
+
+  // request premium member and send database
+  const handleReqPremium = () => {
+    if (user && user?.email) {
+      console.log(user.email);
+      const premiumData = {
+        email: user.email,
+        Name,
+        Biodata_Type,
+        Profile_Image_Link,
+        Permanent_Division,
+        Age,
+        Occupation,
+      };
+      axiosPublic.post("/premium", premiumData).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Premium request Sent",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+    }
+  };
+
   return (
     <div className="border border-red-500">
       <h1>This is view bio data card</h1>
@@ -40,7 +76,9 @@ const ViewDataCard = ({ viewBio }) => {
       <h1>Expected-Partner-Weight: {Expected_Partner_Weight}</h1>
       <h1>Email: {Contact_Email}</h1>
       <h1>Mobile-Number: {Mobile_Number}</h1>
-      <button className="btn btn-error">Make premium </button>
+      <button onClick={handleReqPremium} className="btn btn-error">
+        Make premium{" "}
+      </button>
     </div>
   );
 };
