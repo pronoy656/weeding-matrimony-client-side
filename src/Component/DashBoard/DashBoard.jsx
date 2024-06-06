@@ -5,11 +5,12 @@ import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { IoIosMan } from "react-icons/io";
 import { FaList } from "react-icons/fa6";
 import { FcApproval } from "react-icons/fc";
+import useAdmin from "../Hooks/useAdmin";
 
 const DashBoard = () => {
   const { logOut } = useContext(authContext);
   const navigate = useNavigate();
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   const handleLogOut = () => {
     logOut()
