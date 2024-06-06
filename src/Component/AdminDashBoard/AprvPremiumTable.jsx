@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useUser from "../Hooks/useUser";
+import { FaCrown } from "react-icons/fa6";
 
 const AprvPremiumTable = ({ premium, index }) => {
   const {
@@ -51,7 +52,12 @@ const AprvPremiumTable = ({ premium, index }) => {
         <td>
           {premium.role === "premium" ? (
             <>
-              <h1 className="btn btn-md bg-purple-300">Premium member</h1>
+              <h1 className="btn btn-md bg-purple-300">
+                <span className="text-orange-600 text-xl">
+                  <FaCrown />
+                </span>
+                Premium member
+              </h1>
             </>
           ) : (
             <>
