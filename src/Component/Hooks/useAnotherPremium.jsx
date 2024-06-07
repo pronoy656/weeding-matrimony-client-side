@@ -1,22 +1,20 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
-const usePremiumTan = () => {
+const useAnotherPremium = () => {
   const { user } = useContext(authContext);
   const axiosSecure = useAxiosSecure();
-  const { data: isPremium } = useQuery({
-    queryKey: [user?.email, "isPremium"],
+  const { refetch, data: isAnotherPremium } = useQuery({
+    queryKey: [user?.email, "isAnotherPremium"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/user/premium/${user.email}`);
+      const res = await axiosSecure.get(`/user/anotherPremium/${user.email}`);
       console.log(res.data);
       return res.data?.premium;
     },
   });
-  return [isPremium];
+  return [isAnotherPremium, refetch];
 };
 
-export default usePremiumTan;
-
-// verify email for premium form manage user
+export default useAnotherPremium;

@@ -15,3 +15,5 @@ const usePremiumMember = () => {
 };
 
 export default usePremiumMember;
+
+// data get for shown home route

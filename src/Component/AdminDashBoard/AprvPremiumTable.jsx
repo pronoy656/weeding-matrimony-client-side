@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
-import useUser from "../Hooks/useUser";
+
 import { FaCrown } from "react-icons/fa6";
+
+import usePremium from "../Hooks/usePremium";
 
 const AprvPremiumTable = ({ premium, index }) => {
   const {
@@ -15,7 +17,7 @@ const AprvPremiumTable = ({ premium, index }) => {
     Occupation,
   } = premium;
   const axiosSecure = useAxiosSecure();
-  const [, refetch] = useUser();
+  const [, refetch] = usePremium();
   const premiumData = {
     _id,
     email: email,

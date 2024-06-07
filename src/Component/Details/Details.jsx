@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import usePremiumTan from "../Hooks/usePremiumTan";
 import useAdmin from "../Hooks/useAdmin";
+import useAnotherPremium from "../Hooks/useAnotherPremium";
 
 const Details = () => {
   const bioDetails = useLoaderData();
@@ -36,6 +37,7 @@ const Details = () => {
   const axiosSecure = useAxiosSecure();
 
   const [isPremium] = usePremiumTan();
+  const [isAnotherPremium] = useAnotherPremium();
   const [isAdmin] = useAdmin();
 
   //   add Favorite button
@@ -117,7 +119,7 @@ const Details = () => {
             <h1>Expected_Partner_Weight:{Expected_Partner_Weight}</h1>
           </div>
           <h1>Contact_Email:{Contact_Email}</h1>
-          {isPremium || isAdmin ? (
+          {isPremium || isAnotherPremium || isAdmin ? (
             <>
               <h1 className="btn btn-md bg-green-500">
                 Mobile_Number:{Mobile_Number}
