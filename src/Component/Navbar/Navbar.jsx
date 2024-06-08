@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import Lottie from "lottie-react";
+import webName from "../../../src/webname.json";
 
 const Navbar = () => {
   const { user } = useContext(authContext);
@@ -67,7 +69,11 @@ const Navbar = () => {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+
+        <a className=" btn-ghost text-2xl flex items-center">
+          <Lottie className="w-16 h-16" animationData={webName}></Lottie>
+          <h1 className=" font-semibold mt-3">Eternal Bliss</h1>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
