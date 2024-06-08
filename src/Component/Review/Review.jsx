@@ -1,5 +1,6 @@
 import React from "react";
 import useReview from "../Hooks/useReview";
+import { GoDotFill } from "react-icons/go";
 
 import Lottie from "lottie-react";
 import underSesign from "../../../src/Animation - 1717833435833.json";
@@ -29,19 +30,29 @@ const Review = () => {
           animationData={underSesign}
         ></Lottie>
       </div>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto bg-slate-200 p-8 relative">
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           {reviews.map((review) => (
             <SwiperSlide key={review._id}>
               <div>
-                <img
-                  className="w-48 h-[200px]"
-                  src={review.coupleImage}
-                  alt=""
-                />
-                <p>{review.marriageDate}</p>
-                <p>{review.successStory}</p>
-                <div className="rating">
+                <div className="flex justify-center">
+                  <img
+                    className="w-40 h-[150px] rounded-full"
+                    src={review.coupleImage}
+                    alt=""
+                  />
+                </div>
+                <h1 className="text-center text-3xl font-semibold mt-3">
+                  James Borrison
+                </h1>
+
+                <h1 className="text-center text-xl font-medium mt-2 opacity-60">
+                  Gulshan,Dhaka
+                </h1>
+                <p className="text-center  text-xl font-medium mt-2">
+                  {review.marriageDate}
+                </p>
+                <div className="rating flex justify-center mt-3">
                   <input
                     type="radio"
                     name="rating-2"
@@ -69,10 +80,18 @@ const Review = () => {
                     className="mask mask-star-2 bg-orange-400"
                   />
                 </div>
+                <div className="flex justify-center">
+                  <p className="text-center text-black mt-3 w-[350px]">
+                    {review.successStory}
+                  </p>
+                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* <div className="ml-20 text-2xl absolute">
+          <GoDotFill />
+        </div> */}
       </div>
     </div>
   );
