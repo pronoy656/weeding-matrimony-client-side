@@ -30,6 +30,19 @@ const CheckOut = () => {
             </div>
             <div className="form-control w-full">
               <label className="label">
+                <span className="label-text">Self Name</span>
+              </label>
+              <input
+                type="text"
+                name="selfEmail"
+                defaultValue={user?.displayName}
+                readOnly
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control w-full">
+              <label className="label">
                 <span className="label-text">Self Email</span>
               </label>
               <input
