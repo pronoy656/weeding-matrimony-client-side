@@ -1,6 +1,9 @@
 import React from "react";
 import useReview from "../Hooks/useReview";
 
+import Lottie from "lottie-react";
+import underSesign from "../../../src/Animation - 1717833435833.json";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -13,9 +16,19 @@ const Review = () => {
   const [reviews] = useReview();
   return (
     <div>
-      <h1 className="text-3xl font-semibold text-center">
-        Our Valuable Client review
-      </h1>
+      <div className="flex justify-center items-center">
+        <Lottie
+          className="mr-5 h-24 font-extrabold"
+          animationData={underSesign}
+        ></Lottie>
+        <h1 className="text-3xl font-semibold text-center">
+          Our Valuable Client review
+        </h1>
+        <Lottie
+          className="mr-5 h-24 font-extrabold"
+          animationData={underSesign}
+        ></Lottie>
+      </div>
       <div className="max-w-6xl mx-auto">
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           {reviews.map((review) => (
