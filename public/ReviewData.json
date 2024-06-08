@@ -1,0 +1,23 @@
+[
+    {
+        "coupleImage": "https://example.com/images/couple1.jpg",
+        "maleImage": "https://example.com/images/male1.jpg",
+        "femaleImage": "https://example.com/images/female1.jpg",
+        "marriageDate": "2023-04-15",
+        "successStory": "After months of late-night chats and weekend outings, we realized we were meant for each other. Thank you for bringing us together!"
+    },
+    {
+        "coupleImage": "https://example.com/images/couple2.jpg",
+        "maleImage": "https://example.com/images/male2.jpg",
+        "femaleImage": "https://example.com/images/female2.jpg",
+        "marriageDate": "2022-09-10",
+        "successStory": "Our journey started with a simple hello and blossomed into a beautiful love story. We're grateful for the platform that made it possible."
+    },
+    {
+        "coupleImage": "https://example.com/images/couple3.jpg",
+        "maleImage": "https://example.com/images/male3.jpg",
+        "femaleImage": "https://example.com/images/female3.jpg",
+        "marriageDate": "2021-12-20",
+        "successStory": "From our first date to our wedding day, every moment has been magical. We couldn't have found each other without this amazing service."
+    }
+]

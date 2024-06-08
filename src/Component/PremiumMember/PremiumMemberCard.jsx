@@ -15,6 +15,9 @@ const PremiumMemberCard = ({ member }) => {
       <h1>Permanent-Division: {Permanent_Division}</h1>
       <h1>Age: {Age}</h1>
       <h1>Occupation: {Occupation}</h1>
+      <div className="flex justify-end">
+        <button className="btn btn-sm bg-purple-600 ">View profile</button>
+      </div>
     </div>
   );
 };
