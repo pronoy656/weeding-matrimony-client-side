@@ -10,7 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway);
 const CheckOut = () => {
   const information = useLoaderData();
   const { user } = useContext(authContext);
-  const { id, Contact_Email } = information;
+  const { id, Contact_Email, Mobile_Number } = information;
   return (
     <div>
       <h1 className="text-center text-3xl font-bold">This is check out page</h1>
@@ -59,7 +59,7 @@ const CheckOut = () => {
                 required
               />
             </div>
-            <div className="form-control w-full">
+            {/* <div className="form-control w-full">
               <label className="label">
                 <span className="label-text">Card Number</span>
               </label>
@@ -73,11 +73,14 @@ const CheckOut = () => {
             </div>
             <div className="flex justify-center">
               <button className="btn btn-success mt-4">Submit Button</button>
-            </div>
+            </div> */}
           </form>
-          <div>
+          <div className="mt-9">
             <Elements stripe={stripePromise}>
-              <CheckOutForm></CheckOutForm>
+              <CheckOutForm
+                id={id}
+                Mobile_Number={Mobile_Number}
+              ></CheckOutForm>
             </Elements>
           </div>
         </div>
