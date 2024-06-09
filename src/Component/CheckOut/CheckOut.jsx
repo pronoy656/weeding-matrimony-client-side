@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckOutForm from "./CheckOutForm";
+
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway);
 
 const CheckOut = () => {
   const information = useLoaderData();
@@ -70,6 +75,11 @@ const CheckOut = () => {
               <button className="btn btn-success mt-4">Submit Button</button>
             </div>
           </form>
+          <div>
+            <Elements stripe={stripePromise}>
+              <CheckOutForm></CheckOutForm>
+            </Elements>
+          </div>
         </div>
       </div>
     </div>
