@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const useFavorite = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(authContext);
-  const { data: favorites = [] } = useQuery({
+  const { refetch, data: favorites = [] } = useQuery({
     queryKey: ["favorites", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/favorite?email=${user.email}`);
@@ -14,7 +14,7 @@ const useFavorite = () => {
     },
   });
 
-  return [favorites];
+  return [favorites, refetch];
 };
 
 export default useFavorite;

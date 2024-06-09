@@ -1,7 +1,37 @@
 import { BsTrash } from "react-icons/bs";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useFavorite from "../Hooks/useFavorite";
 
 const FavoriteDataCard = ({ favorite }) => {
-  const { Name, id, Permanent_Division, Occupation } = favorite;
+  const axiosSecure = useAxiosSecure();
+  const [, refetch] = useFavorite();
+  const { Name, id, Permanent_Division, Occupation, _id } = favorite;
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't delete this Bio-data?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/favorite/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Favorite has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <tr>
@@ -9,7 +39,10 @@ const FavoriteDataCard = ({ favorite }) => {
         <td>Id:{id}</td>
         <td>Permanent_Division:{Permanent_Division}</td>
         <td>Occupation:{Occupation}</td>
-        <button className="btn btn-sm text-red-600 bg-red-300">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-sm text-red-600 bg-red-300"
+        >
           <BsTrash />
         </button>
       </tr>
