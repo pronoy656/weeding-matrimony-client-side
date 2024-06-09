@@ -41,11 +41,11 @@ const ManageUsersTable = ({ users, index }) => {
   return (
     <div>
       <tbody>
-        <tr>
-          <th>{index + 1}</th>
-          <td>{name}</td>
-          <td>{email}</td>
-          <td>
+        <tr className="w-[700px]">
+          <th className="w-1/12">{index + 1}</th>
+          <td className="w-1/12">{name}</td>
+          <td className="w-1/12">{email}</td>
+          <td className="w-1/12  justify-center">
             {users.role === "admin" ? (
               <h1 className="btn btn-sm bg-red-200">Admin</h1>
             ) : (
@@ -57,7 +57,7 @@ const ManageUsersTable = ({ users, index }) => {
               </button>
             )}
           </td>
-          <td>
+          <td className="w-1/12 ">
             {users.role === "premium" ? (
               <h1 className="btn btn-sm bg-red-400 text-white">Premium</h1>
             ) : (

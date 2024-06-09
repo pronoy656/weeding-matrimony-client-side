@@ -9,16 +9,16 @@ const ManageUsers = () => {
         Allusers: {allUsers.length}
       </h1>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table w-[1080px] border">
           {/* head */}
-          <thead>
+          {/* <thead>
             <tr>
               <th></th>
               <th>Name</th>
               <th>email</th>
               <th>Role</th>
             </tr>
-          </thead>
+          </thead> */}
           {allUsers.map((users, index) => (
             <ManageUsersTable
               key={users._id}
