@@ -33,12 +33,12 @@ const FavoriteDataCard = ({ favorite }) => {
     });
   };
   return (
-    <div>
+    <div className="w-[800px] ">
       <tr>
-        <td>Name: {Name}</td>
-        <td>Id:{id}</td>
-        <td>Permanent_Division:{Permanent_Division}</td>
-        <td>Occupation:{Occupation}</td>
+        <td className="w-1/4">{Name}</td>
+        <td className="w-1/4">{id}</td>
+        <td className="w-1/4">{Permanent_Division}</td>
+        <td className="w-1/4">Occupation:{Occupation}</td>
         <button
           onClick={() => handleDelete(_id)}
           className="btn btn-sm text-red-600 bg-red-300"

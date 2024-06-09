@@ -5,14 +5,11 @@ const FavouriteBioData = () => {
   const [favorites] = useFavorite();
   return (
     <div>
-      <h1>this ifc favourite bio data page</h1>
       <h1>Favorite:{favorites.length}</h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto border">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>Biodata Id</th>
               <th>Permanent Address</th>
