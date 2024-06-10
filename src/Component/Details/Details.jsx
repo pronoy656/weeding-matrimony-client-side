@@ -43,7 +43,7 @@ const Details = () => {
   //   add Favorite button
   const handleAddFavorite = () => {
     if (user && user.email) {
-      console.log(user.email);
+      // console.log(user.email);
       const favoriteItem = {
         favId: _id,
         email: user.email,
@@ -61,7 +61,7 @@ const Details = () => {
         Fathers_Name,
       };
       axiosSecure.post("/favorite", favoriteItem).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",

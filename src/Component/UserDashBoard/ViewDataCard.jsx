@@ -30,7 +30,7 @@ const ViewDataCard = ({ viewBio }) => {
   // request premium member and send database
   const handleReqPremium = () => {
     if (user && user?.email) {
-      console.log(user.email);
+      // console.log(user.email);
       const premiumData = {
         email: user.email,
         Name,
@@ -41,7 +41,7 @@ const ViewDataCard = ({ viewBio }) => {
         Occupation,
       };
       axiosPublic.post("/premium", premiumData).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",

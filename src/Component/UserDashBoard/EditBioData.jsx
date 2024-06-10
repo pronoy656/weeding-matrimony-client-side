@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { FaEdit } from "react-icons/fa";
 
 const EditBioData = () => {
   const { user } = useContext(authContext);
@@ -47,9 +48,9 @@ const EditBioData = () => {
       Contact_Email,
       Mobile_Number,
     };
-    console.log(allField);
+    // console.log(allField);
     axiosSecure.post("/bioData", allField).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",
@@ -63,7 +64,15 @@ const EditBioData = () => {
   };
   return (
     <div>
-      <h1>This is bio data page</h1>
+      <div className="flex justify-center">
+        <h1 className="flex items-center text-center text-3xl font-semibold mb-5">
+          <span className="text-pink-500 mr-3">
+            {" "}
+            <FaEdit />
+          </span>
+          Create Your <span className="text-pink-500">Biodata</span>
+        </h1>
+      </div>
       <form onSubmit={handleAddBioData}>
         <div className="flex space-x-4">
           <div className="form-control w-1/2">
