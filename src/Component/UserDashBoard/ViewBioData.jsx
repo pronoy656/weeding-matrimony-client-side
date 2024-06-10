@@ -16,7 +16,7 @@ const ViewBioData = () => {
       <h1 className="text-center text-3xl font-bold">
         This is viewBio data page: {selfBio.length}
       </h1>
-      <div className="grid grid-cols-2">
+      <div>
         {selfBio.map((viewBio) => (
           <ViewDataCard key={viewBio._id} viewBio={viewBio}></ViewDataCard>
         ))}

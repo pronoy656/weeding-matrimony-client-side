@@ -56,7 +56,7 @@ const ViewDataCard = ({ viewBio }) => {
   };
 
   return (
-    <div className="border border-red-500">
+    <div className="border border-red-500 ">
       <h1>This is view bio data card</h1>
       <h1>Name: {Name}</h1>
       <h1>Gender: {Biodata_Type}</h1>
