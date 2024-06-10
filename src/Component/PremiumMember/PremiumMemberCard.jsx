@@ -47,7 +47,7 @@ const PremiumMemberCard = ({ member }) => {
         <span className="text-lg font-medium">{Age}</span>
       </h1>
       <div className="flex justify-center mt-4">
-        <button className="btn btn-sm btn-outline w-full">
+        <button className="btn btn-sm btn-outline w-full bg-pink-400 text-white">
           <div className="text-lg">
             <IoEyeOutline />
           </div>

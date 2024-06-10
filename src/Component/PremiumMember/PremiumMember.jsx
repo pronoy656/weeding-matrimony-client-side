@@ -8,7 +8,7 @@ import underLine from "../../../src/underline.json";
 const PremiumMember = () => {
   const [premiumMember] = usePremiumMember();
   return (
-    <div>
+    <div className="mt-10">
       {/* <h1>Premium Member: {premiumMember.length}</h1> */}
 
       <div className="flex justify-center items-center">

@@ -75,13 +75,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/detailsBio/${params.id}`),
+          fetch(
+            `https://assignment-12-server-side-lemon.vercel.app/detailsBio/${params.id}`
+          ),
       },
       {
         path: "/checkOutPage/:id",
         element: <CheckOut></CheckOut>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/detailsBio/${params.id}`),
+          fetch(
+            `https://assignment-12-server-side-lemon.vercel.app/detailsBio/${params.id}`
+          ),
       },
     ],
   },

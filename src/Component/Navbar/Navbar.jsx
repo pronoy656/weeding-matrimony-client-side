@@ -90,10 +90,10 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to={"/login"}>
-              <a className="btn mr-5">sign in</a>
+              <a className="btn mr-5 bg-pink-300">sign in</a>
             </NavLink>
             <NavLink to={"/register"}>
-              <a className="btn">sign up</a>
+              <a className="btn bg-pink-600 text-white">sign up</a>
             </NavLink>
           </>
         )}
