@@ -10,7 +10,7 @@ const useApprovalRequest = () => {
     queryKey: [user?.email, "isApproval"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user/approvalReq/${user.email}`);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data?.approval;
     },
   });

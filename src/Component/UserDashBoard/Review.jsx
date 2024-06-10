@@ -11,9 +11,9 @@ const Review = () => {
     const coupleImage = e.target.image.value;
     const successStory = e.target.review.value;
     const allField = { selfId, partnerId, coupleImage, successStory };
-    console.log(allField);
+    // console.log(allField);
     axiosSecure.post("/review", allField).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",

@@ -9,7 +9,7 @@ const ManageUsersTable = ({ users, index }) => {
 
   const handleMakeAdmin = () => {
     axiosSecure.patch(`/users/admin/${_id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({
@@ -25,7 +25,7 @@ const ManageUsersTable = ({ users, index }) => {
 
   const handleMakePremium = () => {
     axiosSecure.patch(`/users/premium/${_id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({

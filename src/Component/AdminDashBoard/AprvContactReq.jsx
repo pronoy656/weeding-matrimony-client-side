@@ -7,7 +7,7 @@ const AprvContactReq = () => {
   const [allPaymentData, refetch] = useAllPayment();
   const handleMakeApprove = (user) => {
     axiosSecure.patch(`/users/approveRequest/${user._id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({

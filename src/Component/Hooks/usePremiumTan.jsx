@@ -10,7 +10,7 @@ const usePremiumTan = () => {
     queryKey: [user?.email, "isPremium"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user/premium/${user.email}`);
-      console.log(res.data);
+      // console.log(res.data);
       return res.data?.premium;
     },
   });

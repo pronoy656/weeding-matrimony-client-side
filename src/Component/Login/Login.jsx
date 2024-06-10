@@ -16,15 +16,15 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const inputField = { email, password };
-    console.log(inputField);
+    // console.log(inputField);
     signIn(email, password)
       .then((userLogIn) => {
-        console.log(userLogIn.user);
+        // console.log(userLogIn.user);
         toast.success("Signin SuccessFully");
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         toast.error("login faield");
       });
   };

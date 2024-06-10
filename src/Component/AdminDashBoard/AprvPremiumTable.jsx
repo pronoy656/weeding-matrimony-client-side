@@ -31,7 +31,7 @@ const AprvPremiumTable = ({ premium, index }) => {
 
   const handleMakePremium = () => {
     axiosSecure.post(`/users/premiumCltBio/${_id}`, premiumData).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount) {
         refetch();
         Swal.fire({

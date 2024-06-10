@@ -20,7 +20,7 @@ const CheckOutForm = ({ id, Mobile_Number }) => {
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", info).then((res) => {
-      console.log(res.data.clientSecret);
+      // console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
   }, []);
@@ -43,10 +43,10 @@ const CheckOutForm = ({ id, Mobile_Number }) => {
     });
 
     if (error) {
-      console.log("payment error", error);
+      // console.log("payment error", error);
       setError(error.message);
     } else {
-      console.log("payment method", paymentMethod);
+      // console.log("payment method", paymentMethod);
       setError("");
     }
 
@@ -62,11 +62,11 @@ const CheckOutForm = ({ id, Mobile_Number }) => {
         },
       });
     if (confirmError) {
-      console.log("confirm error");
+      // console.log("confirm error");
     } else {
-      console.log("payment intent", paymentIntent);
+      // console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
+        // console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
         // save the payment in the database
@@ -78,7 +78,7 @@ const CheckOutForm = ({ id, Mobile_Number }) => {
         };
 
         const res = await axiosSecure.post("/payments", paymentInfo);
-        console.log("payment saved", res);
+        // console.log("payment saved", res);
         if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",
