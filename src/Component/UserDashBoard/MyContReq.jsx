@@ -20,11 +20,11 @@ const MyContReq = () => {
             </tr>
           </thead>
           <tbody>
-            {payments.map((payment, index) => (
+            {payments?.map((payment, index) => (
               <tr key={payment._id} className="">
                 <th>{index + 1}</th>
                 <td>{payment.id}</td>
-                {isApproval ? (
+                {payment.role === "approval" ? (
                   <>
                     <h1 className="text-green-500 text-xl font-bold mt-3">
                       Approved
@@ -36,7 +36,7 @@ const MyContReq = () => {
                   </>
                 )}
                 <td>
-                  {isApproval ? (
+                  {payment?.role === "approval" ? (
                     <>
                       <td>{payment.email}</td>
                     </>
@@ -47,7 +47,7 @@ const MyContReq = () => {
                   )}
                 </td>
                 <td>
-                  {isApproval ? (
+                  {payment?.role === "approval" ? (
                     <>
                       <td>{payment.mobileNumber}</td>
                     </>
