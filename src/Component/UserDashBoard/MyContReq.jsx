@@ -1,10 +1,38 @@
 import { FaTrash } from "react-icons/fa";
 import useEmailPayment from "../Hooks/useEmailPayment";
 import useApprovalRequest from "../Hooks/useApprovalRequest";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyContReq = () => {
-  const [payments] = useEmailPayment();
+  const [payments, refetch] = useEmailPayment();
   const [isApproval] = useApprovalRequest();
+  const axiosSecure = useAxiosSecure();
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't delete this Bio-data?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/payment/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Favorite has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <h1>Payment: {payments?.length}</h1>
@@ -57,7 +85,10 @@ const MyContReq = () => {
                     </>
                   )}
                 </td>
-                <button className="btn btn-sm bg-red-400">
+                <button
+                  onClick={() => handleDelete(payment._id)}
+                  className="btn btn-sm bg-red-400"
+                >
                   <FaTrash />
                 </button>
               </tr>
