@@ -14,7 +14,8 @@ const ViewBioData = () => {
   return (
     <div>
       <h1 className="text-center text-3xl font-bold">
-        This is viewBio data page: {selfBio.length}
+        View Your <span className="text-pink-500">Biodata</span>:{" "}
+        {selfBio.length}
       </h1>
       <div>
         {selfBio.map((viewBio) => (

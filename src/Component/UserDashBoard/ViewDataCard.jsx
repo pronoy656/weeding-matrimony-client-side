@@ -56,26 +56,62 @@ const ViewDataCard = ({ viewBio }) => {
   };
 
   return (
-    <div className="border border-red-500 ">
-      <h1>This is view bio data card</h1>
-      <h1>Name: {Name}</h1>
-      <h1>Gender: {Biodata_Type}</h1>
-      <img className="w-32 h-32" src={Profile_Image_Link} alt="" />
-      <h1>Date-of-Birth: {Date_of_Birth}</h1>
-      <h1>Height: {Height}</h1>
-      <h1>Weight: {Weight}</h1>
-      <h1>Age: {Age}</h1>
-      <h1>Occupation: {Occupation}</h1>
-      <h1>Race: {Race}</h1>
-      <h1>Father's Name: {Fathers_Name}</h1>
-      <h1>Mother's Name: {Mothers_Name}</h1>
-      <h1>Permanent Division: {Permanent_Division}</h1>
-      <h1>Present-Division: {Present_Division}</h1>
-      <h1>Expected-Partner-Age: {Expected_Partner_Age}</h1>
-      <h1>Expected-Partner-Height: {Expected_Partner_Height}</h1>
-      <h1>Expected-Partner-Weight: {Expected_Partner_Weight}</h1>
-      <h1>Email: {Contact_Email}</h1>
-      <h1>Mobile-Number: {Mobile_Number}</h1>
+    <div className="border shadow-xl shadow-pink-400 mr-9 mt-10">
+      <h1 className="text-center text-3xl font-bold">Biodata</h1>
+      <h1 className="text-center text-xl font-extrabold text-pink-300 mt-3">
+        Personal Information
+      </h1>
+      <div className="flex space-x-24">
+        <div>
+          <img
+            className="w-[250px] h-[230px] ml-4 rounded-lg"
+            src={Profile_Image_Link}
+            alt=""
+          />
+        </div>
+        <div>
+          <h1 className="text-xl mt-3 font-extrabold">Name: {Name}</h1>
+          <h1 className="text-lg mt-2 font-bold">Gender: {Biodata_Type}</h1>
+          <h1 className="text-lg mt-2 font-bold">Height: {Height}</h1>
+          <h1 className="text-lg mt-2 font-bold">Weight: {Weight}</h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Date-of-Birth: {Date_of_Birth}
+          </h1>
+
+          <h1 className="text-lg mt-2 font-bold">Age: {Age}</h1>
+          <h1 className="text-lg mt-2 font-bold">Occupation: {Occupation}</h1>
+          <h1 className="text-lg mt-2 font-bold">Race: {Race}</h1>
+          <h1 className="text-center text-xl font-extrabold text-pink-300 mt-3">
+            Family Information
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Father's Name: {Fathers_Name}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Mother's Name: {Mothers_Name}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Permanent Division: {Permanent_Division}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Present-Division: {Present_Division}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Expected-Partner-Age: {Expected_Partner_Age}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Expected-Partner-Height: {Expected_Partner_Height}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Expected-Partner-Weight: {Expected_Partner_Weight}
+          </h1>
+          <h1 className="text-lg mt-2 font-bold">Email: {Contact_Email}</h1>
+          <h1 className="text-lg mt-2 font-bold">
+            Mobile-Number: {Mobile_Number}
+          </h1>
+        </div>
+      </div>
+
       <button onClick={handleReqPremium} className="btn btn-error">
         Make premium{" "}
       </button>

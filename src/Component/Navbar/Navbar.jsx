@@ -72,7 +72,9 @@ const Navbar = () => {
 
         <a className=" btn-ghost text-2xl flex items-center">
           <Lottie className="w-16 h-16" animationData={webName}></Lottie>
-          <h1 className=" font-semibold mt-3">Eternal Bliss</h1>
+          <h1 className="text-2xl font-bold mt-3">
+            Weeding <span className="text-pink-500">Matrimony</span>
+          </h1>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
