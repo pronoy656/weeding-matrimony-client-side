@@ -18,39 +18,52 @@ const BioUser = ({ bioUser }) => {
     Occupation,
   } = bioUser;
   return (
-    <div className=" border-2 border-red-600 mt-5">
-      <div className="flex justify-between">
-        <h1>User Id: {id}</h1>
+    <div className=" border p-3 rounded-2xl">
+      <div className="flex items-center space-x-5">
+        <img
+          className="w-16 h-16 rounded-full"
+          src={Profile_Image_Link}
+          alt=""
+        />
         <div>
-          <button className="btn btn-xs btn-outline">
-            <FaRegHeart />
-          </button>
+          <h1 className="text-base font-semibold">Biodata Id: {id}</h1>
+          <h1 className="flex items-center text-lg font-semibold">
+            <MdDriveFileRenameOutline />
+            Name:{Name}
+          </h1>
         </div>
       </div>
-      <h1 className="flex items-center">
-        <MdDriveFileRenameOutline />
-        Name:{Name}
-      </h1>
-      <h1 className="flex items-center">
-        <BsPeopleFill />
-        Gender: {Biodata_Type}
-      </h1>
-      <img className="w-36 h-36 rounded-full" src={Profile_Image_Link} alt="" />
-      <h1 className="flex items-center">
+      <div className="flex justify-between mt-2">
+        <h1 className="flex items-center text-lg font-semibold">
+          <BsPeopleFill />
+          Gender: {Biodata_Type}
+        </h1>
+      </div>
+      <div className="border-b-2 mt-5"></div>
+
+      <div className="flex justify-between mt-2">
+        <h1 className="flex items-center text-lg font-semibold">
+          <FaBusinessTime />
+          <span>Occupation: {Occupation}</span>
+        </h1>
+        <h1 className="flex items-center text-lg font-semibold">
+          <TiMediaRecord />
+          Age:{Age}
+        </h1>
+      </div>
+      <div className="border-b-2 mt-5"></div>
+      <h1 className="flex items-center text-lg font-semibold mt-2">
         <FaLocationDot />
         <span>Permanent Address: {Permanent_Division}</span>
       </h1>
-      <h1 className="flex items-center">
-        <TiMediaRecord />
-        Age:{Age}
-      </h1>
-      <h1 className="flex items-center">
-        <FaBusinessTime />
-        <span>Occupation: {Occupation}</span>
-      </h1>
-      <Link to={`/details/${_id}`}>
-        <button className="btn btn-outline">View Profile</button>
-      </Link>
+      <div className="border-b-2 mt-3"></div>
+      <div className="flex justify-end mt-4">
+        <Link to={`/details/${_id}`}>
+          <button className="btn btn-sm bg-pink-500 text-white">
+            View Profile
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -5,10 +5,21 @@ const BioData = () => {
   const [bioData] = useBioData();
   return (
     <div>
-      <h1>{bioData.length}</h1>
-      <div className="flex">
-        <div className="w-1/4 border-2 border-red-600">
-          <h1>Left side</h1>
+      <div className="flex justify-center mt-12 mb-10">
+        <div>
+          <h1 className="text-3xl font-bold ">
+            Find Your <span className="text-pink-500">Soulmate</span>
+          </h1>
+          <h1 className="text-xl font-semibold mt-4 text-center">
+            Total Biodata: {bioData.length}
+          </h1>
+        </div>
+      </div>
+      <div className="flex space-x-8">
+        <div className="w-1/4 border p-4">
+          <h1 className="text-center text-2xl font-bold">
+            Search your <span className="text-pink-500">life partner</span>
+          </h1>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Age</span>
@@ -52,7 +63,7 @@ const BioData = () => {
             </select>
           </div>
         </div>
-        <div className="w-3/4 border-2 border-green-600 grid grid-cols-3">
+        <div className="w-3/4  grid grid-cols-3 gap-x-4 gap-y-4">
           {bioData.map((bioUser) => (
             <BioUser key={bioUser._id} bioUser={bioUser}></BioUser>
           ))}

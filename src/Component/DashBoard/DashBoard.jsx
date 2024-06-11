@@ -42,40 +42,49 @@ const DashBoard = () => {
         <ul className="space-y-5">
           {isAdmin ? (
             <>
-              <li className="bg-blue-500">
+              <li className="bg-blue-500 w-52 rounded-2xl">
                 <NavLink
                   to={"/dashBoard/adminDashBoard"}
                   className="flex items-center"
                 >
                   <IoIosMan />
-                  <h1>Admin Dashboard</h1>
+                  <h1 className="text-xl font-semibold p-3 text-center flex items-center">
+                    Admin Dashboard
+                  </h1>
                 </NavLink>
               </li>
-              <li className="bg-blue-500">
+              <li className="bg-blue-500 w-52 rounded-2xl">
                 <NavLink
                   to={"/dashBoard/manageUsers"}
                   className="flex items-center"
                 >
                   <FaList />
-                  Manage Users
+                  <h1 className="text-xl font-semibold p-3 text-center flex items-center">
+                    {" "}
+                    Manage Users
+                  </h1>
                 </NavLink>
               </li>
-              <li className="bg-blue-500">
+              <li className="bg-blue-500 w-52 rounded-2xl">
                 <NavLink
                   to={"/dashBoard/approvedPremium"}
                   className="flex items-center"
                 >
-                  <FcApproval />
-                  Approved Premium
+                  {/* <FcApproval /> */}
+                  <h1 className="text-xl font-semibold p-3 text-center flex items-center">
+                    Approved Premium
+                  </h1>
                 </NavLink>
               </li>
-              <li className="bg-blue-500">
+              <li className="bg-blue-500 w-52 rounded-2xl">
                 <NavLink
                   to={"/dashBoard/approvedContactRequest"}
                   className="flex items-center"
                 >
-                  <FcApproval />
-                  Approved Contact Request{" "}
+                  {/* <FcApproval /> */}
+                  <h1 className="text-xl font-semibold p-3 text-center flex items-center">
+                    Approved Contact Request
+                  </h1>{" "}
                 </NavLink>
               </li>
             </>

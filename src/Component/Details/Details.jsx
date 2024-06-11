@@ -76,10 +76,12 @@ const Details = () => {
   };
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center">This is details page</h1>
+      <h1 className="text-3xl font-bold text-center mt-11 mb-11">
+        Biodata details page
+      </h1>
       <div className="flex space-x-6">
         <div className="w-1/2">
-          <img src={Profile_Image_Link} alt="" />
+          <img className="rounded-2xl" src={Profile_Image_Link} alt="" />
         </div>
         <div className="w-1/2 border">
           <div className="flex justify-between">
@@ -127,18 +129,31 @@ const Details = () => {
             </>
           ) : (
             <>
-              <h1 className="bg-red-500">
-                Mobile_Number: Only see the premium number
+              <h1 className="bg-red-500 btn">
+                Mobile_Number: Only see the premium member
               </h1>
             </>
           )}
         </div>
       </div>
-      <Link to={`/checkOutPage/${_id}`}>
-        <button className="btn btn-error mr-5">
-          Request Contact information
-        </button>
-      </Link>
+      {isPremium || isAnotherPremium ? (
+        <>
+          <Link to={`/checkOutPage/${_id}`}>
+            <button className="btn hidden btn-error mr-5">
+              Request Contact information
+            </button>
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link to={`/checkOutPage/${_id}`}>
+            <button className="btn btn-error mr-5">
+              Request Contact information
+            </button>
+          </Link>
+        </>
+      )}
+
       <Link to={"/bioData"}>
         <button className="btn btn-success">Back</button>
       </Link>
