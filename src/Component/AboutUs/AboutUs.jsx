@@ -57,7 +57,7 @@ const AboutUs = () => {
         </div>
       </div>
       <h1 className="text-3xl font-extrabold text-center mt-14">
-        Feel Free to Ask Question
+        Feel Free to Ask Question ?
       </h1>
       <div className="collapse collapse-arrow bg-base-200 mt-10">
         <input type="radio" name="my-accordion-2" defaultChecked />
