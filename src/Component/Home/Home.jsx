@@ -22,7 +22,7 @@ const Home = () => {
               src="https://i.ibb.co/zn1rHQh/man-putting-ring-finger-woman.jpg"
               alt=""
             />
-            <div className="absolute left-14 md:left-96 top-32 ">
+            <div className="absolute left-28 md:left-96 top-32 ">
               <div className="text-center">
                 <h1 className="text-5xl font-bold">
                   Find <span className="text-pink-500">Your</span> Best
