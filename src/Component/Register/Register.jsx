@@ -49,15 +49,10 @@ const Register = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-[url('https://i.ibb.co/p0wWJbS/4871703.jpg')]">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Register Now</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <h1 className="text-5xl font-bold mr-40">Register Now</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
@@ -110,12 +105,12 @@ const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Sign up</button>
+                <button className="btn bg-pink-500">Sign up</button>
               </div>
             </form>
             <div className="divider">OR</div>
             <SociealLogin></SociealLogin>
-            <h1>
+            <h1 className="text-xl font-semibold text-green-400 p-3 text-center">
               Already have an account?{" "}
               <Link to={"/login"}>
                 <span>Sign in</span>

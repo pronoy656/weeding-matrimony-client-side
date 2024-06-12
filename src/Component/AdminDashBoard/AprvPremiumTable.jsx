@@ -47,11 +47,11 @@ const AprvPremiumTable = ({ premium, index }) => {
 
   return (
     <div>
-      <tr>
-        <th>{index + 1}</th>
-        <td>{email}</td>
-        <td>{Name}</td>
-        <td>
+      <tr className="w-[700px]">
+        <th className="w-1/12">{index + 1}</th>
+        <td className="w-1/12">{email}</td>
+        <td className="w-1/12">{Name}</td>
+        <td className="w-1/12">
           {premium.role === "premium" ? (
             <>
               <h1 className="btn btn-md bg-purple-300">

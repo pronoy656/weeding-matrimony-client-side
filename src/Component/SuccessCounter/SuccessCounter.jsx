@@ -2,23 +2,16 @@ import Lottie from "lottie-react";
 
 import underLine from "../../../src/underline.json";
 import useBioData from "../Hooks/useBioData";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { IoPeopleSharp } from "react-icons/io5";
+import usePremium from "../Hooks/usePremium";
 
 const SuccessCounter = () => {
   const [bioData] = useBioData();
-  const axiosSecure = useAxiosSecure();
+  const [premiumMember] = usePremium();
 
-  const { data: stats } = useQuery({
-    queryKey: ["admin-stats"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/admin-stats");
-      return res.data;
-    },
-  });
   return (
     <div className="mt-28">
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-8">
         <h1 className="text-center text-3xl font-extrabold">
           Our Success Counter
           <div className="mt-9 ">
@@ -26,8 +19,34 @@ const SuccessCounter = () => {
           </div>
         </h1>
       </div>
-      <h1>Total Biodata: {bioData.length}</h1>
-      <h1>{stats.user}</h1>
+      <div className="flex justify-center mt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12">
+          <div className="border w-44 h-32 flex text-2xl font-bold bg-pink-200 p-2 rounded-2xl mt-8">
+            <div className="mr-2 mt-2">
+              <IoPeopleSharp />
+            </div>
+            <h1>Total Biodata:{bioData.length} </h1>
+          </div>
+          <div className="border w-44 h-32 flex text-2xl font-bold bg-yellow-400 p-2 rounded-2xl mt-8">
+            <div className="mr-2 mt-2">
+              <IoPeopleSharp />
+            </div>
+            <h1>Premium Member: {premiumMember.length}</h1>
+          </div>
+          <div className="border w-44 h-32 flex text-2xl font-bold bg-purple-500 p-2 rounded-2xl mt-8">
+            <div className="mr-2 mt-2">
+              <IoPeopleSharp />
+            </div>
+            <h1>Male Biodata: 11</h1>
+          </div>
+          <div className="border w-44 h-32 flex text-2xl font-bold bg-cyan-400 p-2 rounded-2xl mt-8">
+            <div className="mr-2 mt-2">
+              <IoPeopleSharp />
+            </div>
+            <h1>Female Biodata: 09</h1>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

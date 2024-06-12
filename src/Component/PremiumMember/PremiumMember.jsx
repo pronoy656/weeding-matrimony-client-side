@@ -8,7 +8,8 @@ import { useState } from "react";
 
 const PremiumMember = () => {
   const [premiumMember] = usePremiumMember();
-  const { length, setLength } = useState(6);
+
+  const [length, setLength] = useState(6);
   return (
     <div className="mt-10">
       {/* <h1>Premium Member: {premiumMember.length}</h1> */}
@@ -20,6 +21,9 @@ const PremiumMember = () => {
         ></Lottie>
         <h1 className="text-3xl text-center font-extrabold">
           Our Premium Members
+          <h1 className="text-pink-500 text-xl mt-3">
+            {premiumMember.length} premium Member
+          </h1>
           <div className="mt-9">
             <Lottie animationData={underLine}></Lottie>
           </div>
@@ -30,7 +34,7 @@ const PremiumMember = () => {
         ></Lottie>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-20 md:max-w-6xl md:mx-auto">
-        {premiumMember.map((member) => (
+        {premiumMember.slice(0, length).map((member) => (
           <PremiumMemberCard
             key={member._id}
             member={member}

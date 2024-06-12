@@ -5,19 +5,20 @@ const AprnPremium = () => {
   const [premiumMember] = usePremium();
   return (
     <div>
-      <h1>This is approve premium page</h1>
-      <h1>premiumMember: {premiumMember.length}</h1>
+      <h1 className="text-center mt-8 mb-9 text-3xl font-bold">
+        Total premiumMember: {premiumMember.length}
+      </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+          {/* <thead>
+            <tr className="w-[700px]">
+              <th className="w-1/12">index</th>
+              <th className="w-1/12">Name</th>
+              <th className="w-1/12">Job</th>
+              <th className="w-1/12">Favorite Color</th>
             </tr>
-          </thead>
+          </thead> */}
           <tbody>
             {premiumMember.map((premium, index) => (
               <AprvPremiumTable

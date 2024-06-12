@@ -79,7 +79,7 @@ const AdminDashBoard = () => {
   };
 
   const pieChartData = stats.map((data) => {
-    return { name: data.users, value: data.revenue };
+    return { name: data.total, value: data.total };
   });
 
   return (
@@ -114,56 +114,58 @@ const AdminDashBoard = () => {
           <div className="mr-2 mt-2">
             <LuCircleDollarSign />
           </div>
-          <h1>Total Revenue: {stats.revenue}$</h1>
+          <h1>Total Revenue: {stats?.[2]?.total}$</h1>
         </div>
       </div>
-      <div>
-        <BarChart
-          width={500}
-          height={300}
-          data={stats}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Bar
-            dataKey="total"
-            fill="#8884d8"
-            shape={<TriangleBar />}
-            label={{ position: "top" }}
+      <div className="flex mt-10">
+        <div>
+          <BarChart
+            width={500}
+            height={300}
+            data={stats}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
           >
-            {stats?.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-            ))}
-          </Bar>
-        </BarChart>
-      </div>
-      <div>
-        <PieChart width={400} height={400}>
-          <Pie
-            data={pieChartData}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {pieChartData.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-        </PieChart>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Bar
+              dataKey="total"
+              fill="#8884d8"
+              shape={<TriangleBar />}
+              label={{ position: "top" }}
+            >
+              {stats?.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+              ))}
+            </Bar>
+          </BarChart>
+        </div>
+        <div>
+          <PieChart width={400} height={400}>
+            <Pie
+              data={pieChartData}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {pieChartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+        </div>
       </div>
     </div>
   );

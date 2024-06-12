@@ -5,7 +5,7 @@ const ManageUsers = () => {
   const [allUsers] = useUser();
   return (
     <div>
-      <h1 className="text-3xl font-bold text-purple-600">
+      <h1 className="text-3xl font-bold text-purple-600 text-center mt-8 mb-8">
         Allusers: {allUsers.length}
       </h1>
       <div className="overflow-x-auto">

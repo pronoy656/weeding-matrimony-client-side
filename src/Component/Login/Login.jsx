@@ -3,6 +3,8 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SociealLogin from "../SociealLogin/SociealLogin";
+import Lottie from "lottie-react";
+import loginAnimation from "../../../src/login animation.json";
 
 const Login = () => {
   const { signIn } = useContext(authContext);
@@ -31,15 +33,13 @@ const Login = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-[url('https://i.ibb.co/7trVDC6/couple-holding-hands-front-blurred-rose.jpg')] ">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <h1 className="text-5xl font-bold text-black">Login now!</h1>
+            <div className=" mr-6">
+              <Lottie animationData={loginAnimation}></Lottie>
+            </div>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
@@ -73,7 +73,7 @@ const Login = () => {
             </form>
             <div className="divider">OR</div>
             <SociealLogin></SociealLogin>
-            <h1>
+            <h1 className="text-xl font-semibold text-green-400 p-3 text-center">
               Don't have an account?{" "}
               <Link to={"/register"}>
                 <span>Sign up</span>
