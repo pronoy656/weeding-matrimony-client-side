@@ -1,8 +1,10 @@
 import { IoEyeOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const PremiumMemberCard = ({ member }) => {
   const {
+    _id,
     email,
     Biodata_Type,
     Profile_Image_Link,
@@ -50,12 +52,14 @@ const PremiumMemberCard = ({ member }) => {
           <span className="text-lg font-medium">{Age}</span>
         </h1>
         <div className="flex justify-center mt-4">
-          <button className="btn btn-sm btn-outline w-full bg-pink-400 text-white">
-            <div className="text-lg">
-              <IoEyeOutline />
-            </div>
-            View profile
-          </button>
+          <Link to={`/anotherDetails/${_id}`}>
+            <button className="btn btn-sm btn-outline w-full bg-pink-400 text-white">
+              <div className="text-lg">
+                <IoEyeOutline />
+              </div>
+              View profile
+            </button>
+          </Link>
         </div>
       </div>
     </div>

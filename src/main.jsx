@@ -29,6 +29,7 @@ import AdminDashBoard from "./Component/AdminDashBoard/AdminDashBoard";
 import ManageUsers from "./Component/AdminDashBoard/ManageUsers";
 import AprnPremium from "./Component/AdminDashBoard/AprnPremium";
 import AprvContactReq from "./Component/AdminDashBoard/AprvContactReq";
+import AnotherDetails from "./Component/AnotherDetails/AnotherDetails";
 
 const queryClient = new QueryClient();
 
@@ -73,6 +74,18 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(
             `https://assignment-12-server-side-lemon.vercel.app/detailsBio/${params.id}`
+          ),
+      },
+      {
+        path: "/anotherDetails/:id",
+        element: (
+          <PrivateRoute>
+            <AnotherDetails></AnotherDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-12-server-side-lemon.vercel.app/premiumDetails/${params.id}`
           ),
       },
       {
