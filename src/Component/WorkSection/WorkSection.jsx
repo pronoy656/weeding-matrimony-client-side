@@ -13,7 +13,7 @@ const WorkSection = () => {
           </div>
         </h1>
       </div>
-      <div className="grid grid-cols-6 gap-4 gap-y-10 mt-14">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-4 gap-y-10 mt-14">
         <div className="flex items-center  w-40 p-1 bg-base-100 shadow-xl">
           <h1 className="text-2xl font-extrabold text-pink-600">1</h1>
           <h1 className="ml-4 text-xl font-bold">

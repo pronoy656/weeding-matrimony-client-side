@@ -15,8 +15,8 @@ const BioData = () => {
           </h1>
         </div>
       </div>
-      <div className="flex space-x-8">
-        <div className="w-1/4 border p-4">
+      <div className="md:flex space-x-8">
+        <div className="md:w-1/4 border p-4">
           <h1 className="text-center text-2xl font-bold">
             Search your <span className="text-pink-500">life partner</span>
           </h1>
@@ -63,7 +63,8 @@ const BioData = () => {
             </select>
           </div>
         </div>
-        <div className="w-3/4  grid grid-cols-3 gap-x-4 gap-y-4">
+
+        <div className="w-3/4  grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-4">
           {bioData.map((bioUser) => (
             <BioUser key={bioUser._id} bioUser={bioUser}></BioUser>
           ))}

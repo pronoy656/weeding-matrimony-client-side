@@ -17,7 +17,7 @@ const Review = () => {
   const [reviews] = useReview();
   return (
     <div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center mt-20 mb-8">
         <Lottie
           className="mr-5 h-24 font-extrabold"
           animationData={underSesign}
@@ -30,7 +30,7 @@ const Review = () => {
           animationData={underSesign}
         ></Lottie>
       </div>
-      <div className="max-w-6xl mx-auto bg-slate-200 p-8 relative">
+      <div className="max-w-6xl mx-auto bg-pink-100 p-8 relative mb-28">
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
           {reviews.map((review) => (
             <SwiperSlide key={review._id}>

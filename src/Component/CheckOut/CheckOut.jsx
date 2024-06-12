@@ -12,9 +12,11 @@ const CheckOut = () => {
   const { user } = useContext(authContext);
   const { id, Contact_Email, Mobile_Number } = information;
   return (
-    <div>
-      <h1 className="text-center text-3xl font-bold">This is check out page</h1>
-      <div className="flex space-x-9">
+    <div className="mb-16">
+      <h1 className="text-center text-3xl font-bold mb-10 mt-9">
+        check out page
+      </h1>
+      <div className="flex md:space-x-9">
         <div className="border w-1/2">
           <img src="https://i.ibb.co/f1HJVhK/2879845.jpg" alt="" />
         </div>

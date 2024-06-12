@@ -4,9 +4,11 @@ import PremiumMemberCard from "./PremiumMemberCard";
 import Lottie from "lottie-react";
 import underSesign from "../../../src/Animation - 1717833435833.json";
 import underLine from "../../../src/underline.json";
+import { useState } from "react";
 
 const PremiumMember = () => {
   const [premiumMember] = usePremiumMember();
+  const { length, setLength } = useState(6);
   return (
     <div className="mt-10">
       {/* <h1>Premium Member: {premiumMember.length}</h1> */}
@@ -27,7 +29,7 @@ const PremiumMember = () => {
           animationData={underSesign}
         ></Lottie>
       </div>
-      <div className="grid grid-cols-3 gap-x-20 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-20 md:max-w-6xl md:mx-auto">
         {premiumMember.map((member) => (
           <PremiumMemberCard
             key={member._id}

@@ -75,7 +75,7 @@ const Details = () => {
     }
   };
   return (
-    <div>
+    <div className="mb-12">
       <h1 className="text-3xl font-bold text-center mt-11 mb-11">
         Biodata details page
       </h1>

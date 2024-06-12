@@ -71,6 +71,7 @@ const CheckOutForm = ({ id, Mobile_Number }) => {
 
         // save the payment in the database
         const paymentInfo = {
+          price: 5,
           email: user.email,
           name: user.displayName,
           id: id,
