@@ -6,7 +6,7 @@ import SociealLogin from "../SociealLogin/SociealLogin";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Register = () => {
-  const { createUser, updateUserProfile, user, setUser } =
+  const { createUser, updateUserProfile, user, setUser, logOut } =
     useContext(authContext);
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
@@ -32,7 +32,8 @@ const Register = () => {
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
               toast.success("Successfully account created!");
-              navigate("/");
+              logOut();
+              navigate("/login");
             }
           });
           setUser({ displayName: name, photoURL: photoUrl });

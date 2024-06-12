@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const ViewDataCard = ({ viewBio }) => {
   const { user } = useContext(authContext);
   const {
+    id,
     Name,
     Biodata_Type,
     Profile_Image_Link,
@@ -71,6 +72,7 @@ const ViewDataCard = ({ viewBio }) => {
         </div>
         <div>
           <h1 className="text-xl mt-3 font-extrabold">Name: {Name}</h1>
+          <h1 className="text-lg mt-2 font-bold">Biodata Id: {id}</h1>
           <h1 className="text-lg mt-2 font-bold">Gender: {Biodata_Type}</h1>
           <h1 className="text-lg mt-2 font-bold">Height: {Height}</h1>
           <h1 className="text-lg mt-2 font-bold">Weight: {Weight}</h1>
